@@ -6,6 +6,7 @@ import { useFonts } from 'expo-font';
 
 import * as SplashScreen from 'expo-splash-screen';
 import BottomTabNavigation from './navigations/BottomTabNavigation';
+import { Cart, ProductDetail } from './screens';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -39,20 +40,19 @@ export default function App() {
         component={BottomTabNavigation}
         options={{headerShown: false}}
         />
+        <Stack.Screen
+        name='Cart'
+        component={Cart}
+        options={{headerShown: false}}
+        />
+        <Stack.Screen
+        name='ProductDetail'
+        component={ProductDetail}
+        options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textStyle: {
-    fontFamily: "semibold",
-    fontSize: 20,
-  },
-});
+
