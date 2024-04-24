@@ -1,7 +1,6 @@
 import { StyleSheet} from "react-native"
 import { COLORS, SIZES } from "../constants"
 
-
 const styles = StyleSheet.create({
 
     container:{
@@ -31,6 +30,20 @@ const styles = StyleSheet.create({
         borderTopRightRadius: SIZES.medium,
 
     },
+    cartRow:{
+        paddingBottom: SIZES.small,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: SIZES.width
+    },  
+    cartBtn:{
+        width: SIZES.width *0.7,
+        backgroundColor: COLORS.black,
+        padding: SIZES.small/2,
+        borderRadius: SIZES.large,
+        marginLeft: 12
+    },
     titleRow:{
         marginHorizontal: 20,
         paddingBottom: SIZES.small,
@@ -51,11 +64,45 @@ const styles = StyleSheet.create({
         top: 5
     },
     rating:{
-        top: SIZES.small,
+        top: SIZES.large,
         flexDirection: "row",
         justifyContent: 'flex-start',
         alignItems: 'center',
         marginHorizontal: SIZES.large
+    },
+    ratingText:{
+        color:COLORS.gray, 
+        fontFamily: 'medium',
+        paddingHorizontal: SIZES.xSmall
+    },  
+    descriptionWrapper:{
+        marginTop: SIZES.large +2,
+        marginHorizontal: SIZES.large
+    },
+    description:{
+        fontFamily: 'medium',
+        fontSize: SIZES.large-2
+    },  
+    descText: {
+        fontFamily: 'regular',
+        fontSize: SIZES.small,
+        textAlign: 'justify',
+        marginBottom: SIZES.small
+    },
+    location:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: COLORS.secondary,
+        padding: 5,
+        marginHorizontal: 12,
+        borderRadius: SIZES.large
+    },
+    cartTitle:{
+        marginLeft: SIZES.small,
+        fontFamily: 'semibold',
+        fontSize: SIZES.medium,
+        color: COLORS.lightWhite
     },
     title:{
         fontFamily: 'bold',
@@ -69,6 +116,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         fontFamily: 'semibold',
         fontSize: SIZES.large
+    },
+    addCart:{
+        width: 37,
+        height: 37,
+        borderRadius: 50,
+        margin: SIZES.small,
+        backgroundColor: COLORS.black,
+        alignItems: "center",
+        justifyContent: 'center',
     }
 })
 
