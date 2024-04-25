@@ -40,7 +40,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: "center",
     
-    }
+    },
 
+    imageContainer:{
+        flex: 1,
+        width: 70,
+        backgroundColor: COLORS.secondary,
+        borderRadius: SIZES.medium,
+        justifyContent: 'center',
+        alignContent: 'center'
+        
+        
+    },
+    searchImage:{
+        resizeMode: "contain",
+        width: SIZES.width- 50,
+        height: SIZES.height-200
+    },
 })
 export default styles;

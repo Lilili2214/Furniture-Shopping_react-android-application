@@ -10,7 +10,7 @@ const Carousel = React.memo(() => {
   
   
   const slides = data.slice(0, 4).map(item => item.imageUrl);
-  console.log(slides)
+  
 
   return (
     <View style={styles.carouselContainer}>

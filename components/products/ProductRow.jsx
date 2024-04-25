@@ -8,7 +8,7 @@ import useFetch from '../../hook/useFetch';
 const ProductRow = () => {
   const {data, isLoading, error}= useFetch()
 
-  const products = [1, 2, 3,4];
+  const newdata= data.slice(0,5)
 
   return (
     <View style={styles.container}>
@@ -18,7 +18,7 @@ const ProductRow = () => {
       <Text>Something went wrong</Text>
     ):(
       <FlatList
-      data={data}
+      data={newdata}
       keyExtractor={(item)=>{
         item._id
       }}

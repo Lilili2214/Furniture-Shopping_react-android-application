@@ -11,11 +11,11 @@ const useFetch=()=>{
         setIsLoading(true);
         try {
             const response = await axios.get('http://172.16.1.52:3000/api/products/');
-            console.log('Response:', response.data); 
+            
             setData(response.data);
             setIsLoading(false);
         } catch (err) {
-            console.error('Error fetching data:', err); 
+            
             setError(err);
         } finally {
             setIsLoading(false);

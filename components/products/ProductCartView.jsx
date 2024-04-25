@@ -23,7 +23,7 @@ const ProductCartView =  React.memo(({item})  => {
                     {item.title}
                 </Text>
                 <Text style={styles.supplier} numberOfLines={1}>{item.supplier}</Text>
-                <Text style={styles.price} >{item.product_location}</Text>
+                <Text style={styles.price} >{item.price}</Text>
                 
             </View>
             <TouchableOpacity style={styles.addBtn}>

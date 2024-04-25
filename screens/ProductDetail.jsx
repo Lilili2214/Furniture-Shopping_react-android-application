@@ -89,7 +89,7 @@ const ProductDetail = React.memo(({ route,navigation }) => {
                 <View style={styles.location}>
                     <View style={{flexDirection: 'row'}}>
                         <Ionicons name='location-outline' size={20}/>
-                        <Text>CHINA</Text>
+                        <Text>{item.product_location}</Text>
                     </View>
 
                     <View style={{flexDirection: 'row'}}>
