@@ -47,6 +47,9 @@ addBtn:{
     bottom: SIZES.xSmall,
     right: SIZES.xSmall,
     
+},
+emptyContainer:{
+    height: 200
 }
 
 })

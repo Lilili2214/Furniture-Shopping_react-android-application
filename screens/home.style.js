@@ -38,6 +38,8 @@ const styles= StyleSheet.create({
         fontSize: 10,
         color: COLORS.lightWhite,
         
+    },emptyContainer:{
+        height: 500
     }
 })
 

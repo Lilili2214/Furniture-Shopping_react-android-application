@@ -3,10 +3,10 @@ import React from 'react'
 import { useState } from 'react'
 import {Ionicons, SimpleLineIcons,MaterialCommunityIcons, Fontisto} from "@expo/vector-icons"
 import styles from './productDetail.style'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native'
 import { COLORS, SIZES } from '../constants'
-const ProductDetail = ({navigation}) => {
-    const [count, setCount]= useState(1)
+const ProductDetail = React.memo(({ route,navigation }) => {
+    const [count, setCount]= useState(2)
     const increment = ()=>{
         if (count<5)
         {
@@ -18,6 +18,7 @@ const ProductDetail = ({navigation}) => {
             setCount(count-1)
         }
     }
+    const {item} = route.params
   return (
     <View style={styles.container}>
         <View style= {styles.upperRow}>
@@ -34,14 +35,14 @@ const ProductDetail = ({navigation}) => {
             </TouchableOpacity>
         </View>
         <Image
-            source={{uri: "https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_640.jpg"}}
+            source={{uri: item.imageUrl}}
             style={styles.image}
         />
         <View style={styles.details}>
             <View style={styles.titleRow}>
-                <Text style={styles.title}>Product</Text>
+                <Text style={styles.title}>{item.title}</Text>
                 <View style={styles.priceWrapper}>
-                    <Text style={styles.price}>$ 299</Text>
+                    <Text style={styles.price}>{item.price}</Text>
                 </View>
             
             
@@ -80,7 +81,7 @@ const ProductDetail = ({navigation}) => {
             <View style={styles.descriptionWrapper}>
                 <Text style={styles.description}>Description</Text>
                 <Text style={styles.descText}>
-                Introducing an elegant and versatile sofa that seamlessly blends style and comfort. This modern L-shaped design features clean lines, plush cushions, and a neutral gray color. Let's explore its key features: **L-Shaped Design**: The unique configuration allows flexible placement in corners or as a striking centerpiece. **Plush Comfort**: Generously padded cushions invite you to sink in and unwind. **Sturdy Build**: Crafted from durable materials, this sofa ensures longevity and stability. **Chic Gray Hue**: The soothing gray upholstery harmonizes effortlessly with any decor. **Chaise Lounge**: One end extends into a cozy chaise lounge—perfect for relaxation or reading. Whether hosting guests, binge-watching shows, or simply unwinding, this gray L-shaped sofa elevates your living space. 🛋️
+                {item.description}
                 </Text>
             </View>
             
@@ -114,6 +115,6 @@ const ProductDetail = ({navigation}) => {
     </View>
   )
 }
-
+)
 export default ProductDetail
 

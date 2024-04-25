@@ -4,24 +4,26 @@ import styles from './productCartView.style'
 import {Ionicons} from "@expo/vector-icons"
 import { COLORS } from '../../constants'
 import { useNavigation } from '@react-navigation/native'
-const ProductCartView = () => {
+const ProductCartView =  React.memo(({item})  => {
     const navigation = useNavigation();
 
 
     return (
-    <TouchableOpacity onPress={()=>navigation.navigate('ProductDetail')}>
+    <TouchableOpacity key= {item._id} onPress={()=>navigation.navigate('ProductDetail', {item: item})}>
         <View style={styles.container}>
             <View style={styles.imageContainer}>
                 <Image
-                source={{uri:"https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_640.jpg"}}
+                source={{uri:item.imageUrl}}
                 style={styles.image}
                 
                 />
             </View>
             <View style={styles.details}>
-                <Text style={styles.title} numberOfLines={1}>Product</Text>
-                <Text style={styles.supplier} numberOfLines={1}>Product</Text>
-                <Text style={styles.price} >VR54827</Text>
+                <Text style={styles.title} numberOfLines={1}>
+                    {item.title}
+                </Text>
+                <Text style={styles.supplier} numberOfLines={1}>{item.supplier}</Text>
+                <Text style={styles.price} >{item.product_location}</Text>
                 
             </View>
             <TouchableOpacity style={styles.addBtn}>
@@ -32,6 +34,6 @@ const ProductCartView = () => {
     </TouchableOpacity>
   )
 }
-
+)
 export default ProductCartView
 

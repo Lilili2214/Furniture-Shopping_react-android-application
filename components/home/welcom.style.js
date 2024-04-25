@@ -43,7 +43,7 @@ searchInput:{
 },
 searchBtn:{
     width: 50,
-    height: "200%",
+    height: "100%",
     backgroundColor: COLORS.primary,
     borderRadius:SIZES.medium,
     justifyContent: 'center',

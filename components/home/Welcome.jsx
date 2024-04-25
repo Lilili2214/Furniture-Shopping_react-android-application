@@ -6,17 +6,17 @@ import {Feather, Ionicons} from "@expo/vector-icons"
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const Welcome = () => {
+const Welcome =  React.memo(()  => {
     const navigation = useNavigation()
   return (
     <View>
         
       <View style={styles.container}>
         <Text style ={styles.welcomeTxt(COLORS.black, SIZES.xSmall)}>
-            {" "}
+         
             Find the Most</Text>
         <Text style ={styles.welcomeTxt(COLORS.primary, 0)}>
-            {" "}
+            
             Luxurious Furniture</Text>
       </View>
     
@@ -44,5 +44,5 @@ const Welcome = () => {
     
   )
 }
-
+)
 export default Welcome

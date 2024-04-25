@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, {PureComponent} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './home.style'
 import { Ionicons, Fontisto } from '@expo/vector-icons'
@@ -8,7 +8,8 @@ import Welcome from '../components/home/Welcome'
 import Carousel from '../components/home/Carousel'
 import Heading from '../components/home/Heading'
 import ProductRow from '../components/products/ProductRow'
-const Home = () => {
+class Home extends PureComponent {
+    render() {
   return (
     <SafeAreaView>
         <View style= {styles.appBarWrapper}>
@@ -31,10 +32,11 @@ const Home = () => {
             <Carousel/>
             <Heading/>
             <ProductRow/>
+            
         </ScrollView>
       </SafeAreaView>
   )
 }
-
+}
 export default Home
 
