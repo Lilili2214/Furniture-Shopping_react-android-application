@@ -50,7 +50,7 @@ module.exports ={
             res.status(200).json(result)
         }
         catch(err){
-            res.status(500).json('failed to get the product')
+            res.status(500).json(err)
         }
     }
 }

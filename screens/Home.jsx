@@ -1,15 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, {PureComponent} from 'react'
+import { View, Text, Modal , TouchableOpacity, Image} from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
+import React, {PureComponent, useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './home.style'
 import { Ionicons, Fontisto } from '@expo/vector-icons'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
 import Welcome from '../components/home/Welcome'
 import Carousel from '../components/home/Carousel'
 import Heading from '../components/home/Heading'
 import ProductRow from '../components/products/ProductRow'
-class Home extends PureComponent {
-    render() {
+import { SIZES } from '../constants';
+const Home= React.memo(()=>{
+    
+    const [showModal, setShowModal] = useState(true); // Set to true initially
+
+    // Hide the modal when needed (e.g., after user interaction)
+    const hideModal = () => {
+        setShowModal(false);
+        SplashScreen.hide(); // Hide the splash screen
+    };
+        
   return (
     <SafeAreaView>
         <View style= {styles.appBarWrapper}>
@@ -26,6 +36,17 @@ class Home extends PureComponent {
                     </TouchableOpacity>
                 </View>
             </View>
+            <Modal visible={showModal} animationType="slide">
+                <View style={{flex: 1}}>
+                    <TouchableOpacity onPress={hideModal} style={{position: "absolute",marginLeft: SIZES.width-50, zIndex: 999}}>
+                        <Text>Close</Text>
+                    </TouchableOpacity>
+                    <View style={{flex:1}}>
+                        <Image source={require("../assets/images/discount.jpg")} style={{ aspectRatio: 0.5, height: SIZES.height}}/>
+                    </View>
+                </View>
+            </Modal>
+            
         </View>
         <ScrollView>
             <Welcome/>
@@ -37,6 +58,6 @@ class Home extends PureComponent {
       </SafeAreaView>
   )
 }
-}
+)
 export default Home
 

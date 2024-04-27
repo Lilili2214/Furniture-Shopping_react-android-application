@@ -3,24 +3,23 @@ import React ,{useState}from 'react'
 import styles from './search.styling'
 
 import { Ionicons, Feather } from '@expo/vector-icons'
-import { COLORS, SIZES } from '../constants'
+import { COLORS, SIZES, localhost } from '../constants'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { TextInput, TouchableOpacity } from 'react-native'
 import axios from 'axios'
-import ProductCartView from '../components/products/ProductCartView'
 import SearchTile from '../components/products/SearchTile'
-const Search = () => {
+const Search = React.memo(() => {
   const [searchKey, setSearchKey]= useState('')
   const [searchResults, setSearchResults]= useState([])
   const handlePress= async (searchKey)=>{
 
     try{
-      const response = await axios.get(`http://172.16.1.52:3000/api/products/search/${searchKey}`);
+      const response = await axios.get(`http://${localhost}:3000/api/products/search/${searchKey}`);
             
       await setSearchResults(response.data);
       console.log(searchResults)
     }catch(error){
-      console.log('Failed to get products')
+      console.log(error)
     }
 
   }
@@ -69,6 +68,6 @@ const Search = () => {
     </SafeAreaView>
   )
 }
-
+)
 export default Search
 

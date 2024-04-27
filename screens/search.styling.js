@@ -44,11 +44,7 @@ const styles = StyleSheet.create({
 
     imageContainer:{
         flex: 1,
-        width: 70,
-        backgroundColor: COLORS.secondary,
-        borderRadius: SIZES.medium,
-        justifyContent: 'center',
-        alignContent: 'center'
+        
         
         
     },

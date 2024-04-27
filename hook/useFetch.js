@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { localhost } from "../constants";
 const useFetch=()=>{
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -10,7 +10,7 @@ const useFetch=()=>{
     const fetchData = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://172.16.1.52:3000/api/products/');
+            const response = await axios.get(`http://${localhost}:3000/api/products/`);
             
             setData(response.data);
             setIsLoading(false);

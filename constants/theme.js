@@ -3,12 +3,12 @@ import { Dimensions } from 'react-native'
 const { height, width } = Dimensions.get('window');
 
 const COLORS = {
-  primary: "#2A4D50",
-  secondary: "#DDF0FF",
-  tertiary: "#FF7754",
+  primary: "#1c4e4f",
+  secondary: "#ceece2",
+  tertiary: "#6a8e8f",
 
-  gray: "#83829A",
-  gray2: "#C1C0C8",
+  gray: "#0a2d2e",
+  gray2: "#1c4e4f",
 
   offwhite: "#F3F4F8",
   white: "#FFFFFF",
