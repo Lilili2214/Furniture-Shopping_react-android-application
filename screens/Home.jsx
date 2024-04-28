@@ -36,7 +36,7 @@ const Home= React.memo(()=>{
                     </TouchableOpacity>
                 </View>
             </View>
-            <Modal visible={showModal} animationType="slide">
+            {/* <Modal visible={showModal} animationType="slide">
                 <View style={{flex: 1}}>
                     <TouchableOpacity onPress={hideModal} style={{position: "absolute",marginLeft: SIZES.width-50, zIndex: 999}}>
                         <Text>Close</Text>
@@ -45,7 +45,7 @@ const Home= React.memo(()=>{
                         <Image source={require("../assets/images/discount.jpg")} style={{ aspectRatio: 0.5, height: SIZES.height}}/>
                     </View>
                 </View>
-            </Modal>
+            </Modal> */}
             
         </View>
         <ScrollView>

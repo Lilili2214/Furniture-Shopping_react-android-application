@@ -24,6 +24,11 @@ const screenOptions = {
 const BottomTabNavigation = () => {
   return (
     <Tab.Navigator  screenOptions={screenOptions} >
+        <Tab.Screen name='Profile' component={Profile} options={{tabBarIcon: ({focused})=>{
+            return <Ionicons name={focused? 'person' : 'person-outline'} 
+            size={24} 
+            color={focused ? COLORS.primary: COLORS.gray2}/>
+        }}}></Tab.Screen>
         <Tab.Screen name='Home' component={Home} options={{tabBarIcon: ({focused})=>{
             return <Ionicons name={focused? 'home' : 'home-outline'} 
             size={24} 
@@ -34,11 +39,7 @@ const BottomTabNavigation = () => {
             size={24} 
             color={focused ? COLORS.primary: COLORS.gray2}/>
         }}}></Tab.Screen>
-        <Tab.Screen name='Profile' component={Profile} options={{tabBarIcon: ({focused})=>{
-            return <Ionicons name={focused? 'person' : 'person-outline'} 
-            size={24} 
-            color={focused ? COLORS.primary: COLORS.gray2}/>
-        }}}></Tab.Screen>
+        
     </Tab.Navigator>
   )
 }
