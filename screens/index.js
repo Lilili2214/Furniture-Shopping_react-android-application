@@ -8,6 +8,7 @@ import LoginPage from './LoginPage';
 import Order from "./Order";
 import Favorites from "./Favorites";
 import ProductList from "../components/products/ProductList";
+import Registration from "./Registration";
 export {
-    Home, Search,Profile, Cart, ProductDetail, NewRival, ProductList, LoginPage, Order, Favorites
+    Home, Search,Profile, Cart, ProductDetail, NewRival, ProductList, LoginPage, Order, Favorites, Registration
 }

@@ -18,7 +18,7 @@ const styles= StyleSheet.create({
         marginBottom: SIZES.xxLarge
     },
     wrapper:{
-        marginBottom: 20,
+        marginBottom: 10,
         //marginHorizontal: 20
     },
     label:{
@@ -44,6 +44,18 @@ const styles= StyleSheet.create({
     iconStyle:{
         marginRight: 10,
         paddingTop: 15,
+    },
+    errorMessage:{
+        fontSize: SIZES.xSmall,
+        color: COLORS.red,
+        marginTop: 5,
+        marginLeft: 5,
+        fontFamily: "regular"
+    }, 
+    registration:{
+        marginVertical: 20,
+        textAlign: "center",
+       
     }
 
 
