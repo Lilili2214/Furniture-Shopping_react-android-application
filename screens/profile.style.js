@@ -30,7 +30,7 @@ const styles= StyleSheet.create({
     name:{
         fontFamily: "bold",
         color: COLORS.primary,
-        marginVertical: 5,
+        marginTop: 5,
 
     },
     loginBtn:{
@@ -49,7 +49,7 @@ const styles= StyleSheet.create({
         lineHeight: 26
     }, 
     menuWrapper:{
-        marginTop: SIZES.xLarge,
+        marginTop: SIZES.large-20,
         width: SIZES.width- SIZES.large,
         backgroundColor: COLORS.lightWhite, 
         borderRadius: 12,

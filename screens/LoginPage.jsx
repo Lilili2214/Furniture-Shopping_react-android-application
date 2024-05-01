@@ -1,12 +1,14 @@
 import { View, Text, ScrollView, SafeAreaView, Image , TextInput, TouchableOpacity, Alert} from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BackBtn from "../components/BackBtn"
 import styles from './loginPage.style'
 import { Button } from '../components'
 import { Formik } from 'formik';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Yup from "yup"
-import { COLORS } from '../constants'
+import { COLORS, localhost } from '../constants'
+import axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 const validationSchema= Yup.object().shape({
  
   password: Yup.string()
@@ -16,10 +18,28 @@ const validationSchema= Yup.object().shape({
 })
 
 const LoginPage = ({navigation}) => {
-  const {loader, setLoader}= useState()
-  const [responseData, setResponseData]= useState(null)
-  const [email, setEmail]= useState("")
+  const [loader, setLoader]= useState(false)
   const [obsecureText, setObsecureText]= useState(false)
+  const login = async (values)=>{
+    setLoader(true)
+
+    try{
+      const response = await axios.post(`http://${localhost}:3000/api/login/`,values )
+      const json= await response.data
+      setLoader(false)
+      const jsonData = {
+        userId: json._id,
+        token: json.token
+      }
+      await AsyncStorage.setItem('user', JSON.stringify(jsonData))
+      
+      navigation.navigate("Profile",{isLogin: true})
+
+    }catch(error){
+      console.log(error)
+      setLoader(false)
+    }
+  }
  const isValidForm=()=>{
   Alert.alert(
     "Invalid Form",
@@ -33,6 +53,7 @@ const LoginPage = ({navigation}) => {
     ]
   )
 }
+
   return (
     <ScrollView>
       <SafeAreaView style={{marginHorizontal: 20}}>
@@ -46,7 +67,7 @@ const LoginPage = ({navigation}) => {
         <Formik initialValues={{email: '', password:""}}
         
         validationSchema={validationSchema}
-        onSubmit={(values)=>console.log(values)}
+        onSubmit={(values)=>login(values)}
         >
           {({ handleChange, handleBlur, touched,handleSubmit, values, errors, isValid, setFieldTouched }) => (
 
@@ -106,7 +127,7 @@ const LoginPage = ({navigation}) => {
               <Text style={styles.errorMessage}>{errors.password}</Text>
             )}
         </View>
-        <Button title={"L O G I N"} onPress={isValid? handleSubmit:isValidForm} isValid={isValid}/>
+        <Button title={"L O G I N"} onPress={isValid? handleSubmit:isValidForm} isValid={isValid} loader = {loader}/>
        <Text style={styles.registration} onPress={()=>navigation.navigate("Registration")}>Registration</Text>
        
        </View>
